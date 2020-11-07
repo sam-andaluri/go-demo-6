@@ -38,13 +38,9 @@ linux:
 
 .PHONY: release clean
 
-FGT := $(GOPATH)/bin/fgt
-$(FGT):
-	go get github.com/GeertJohan/fgt
+$(FGT): go get github.com/GeertJohan/fgt
 
-GOLINT := $(GOPATH)/bin/golint
-$(GOLINT):
-	go get github.com/golang/lint/golint
+$(GOLINT): go get github.com/golang/lint/golint
 
 $(PKGS): $(GOLINT) $(FGT)
 	@echo "LINTING"
